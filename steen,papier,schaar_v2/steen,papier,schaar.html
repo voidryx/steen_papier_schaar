@@ -1,18 +1,27 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="steen,papier,schaar.css">
-        <script src="steen,papier,schaar.js" defer></script>
-    </head>
-    <body>
-        <div class="center">
-          <h1>computer:<span id="computer"></span></h1>
-          <h1>jouw keuze:<span id="human"></span></h1>
-          <h1>uitkoms:<span id="result"></span></h1>
-          <button id="steen">steen</button>
-          <button id="papier">papier</button>
-          <button id="schaar">schaar</button>
-        </div>
-    </body>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Steen Papier Schaar</title>
+    <link rel="stylesheet" href="steen,papier,schaar.css">
+    <script src="steen,papier,schaar.js" defer></script>
+</head>
+<body>
+    <div class="center">
+        <h1>Computer: <span id="computer"></span></h1>
+        <h1>Jouw keuze: <span id="human"></span></h1>
+        <h1>Uitkomst: <span id="result"></span></h1>
+
+        <hr>
+
+        <h2>Player Wins: <span id="playerWins">0</span></h2>
+        <h2>Bot Wins: <span id="botWins">0</span></h2>
+        <h2>Win Streak: <span id="winStreak">0</span></h2>
+        <h2>High Score: <span id="highScore">0</span></h2>
+
+        <button id="steen">Steen</button>
+        <button id="papier">Papier</button>
+        <button id="schaar">Schaar</button>
+    </div>
+</body>
 </html>

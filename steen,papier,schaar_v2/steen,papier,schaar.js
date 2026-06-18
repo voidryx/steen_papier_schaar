@@ -1,7 +1,11 @@
-
 const humenoutput = document.querySelector("#human");
 const computeroutput = document.querySelector("#computer");
 const resultoutput = document.querySelector("#result");
+
+const playerWinsOutput = document.querySelector("#playerWins");
+const botWinsOutput = document.querySelector("#botWins");
+const winStreakOutput = document.querySelector("#winStreak");
+const highScoreOutput = document.querySelector("#highScore");
 
 humenoutput.innerHTML = "jouw keuze komt hier";
 
@@ -12,6 +16,11 @@ const schaarbtn = document.querySelector("#schaar");
 let humenchoice = "";
 let computerchoice = "";
 
+// Scores
+let playerWins = 0;
+let botWins = 0;
+let winStreak = 0;
+let highScore = 0;
 
 function getComputerChoice() {
     const randomnumber = Math.floor(Math.random() * 3) + 1;
@@ -21,7 +30,6 @@ function getComputerChoice() {
     return "schaar";
 }
 
-
 function playGame(event) {
     humenchoice = event.target.id;
     humenoutput.innerHTML = humenchoice;
@@ -29,18 +37,35 @@ function playGame(event) {
     computerchoice = getComputerChoice();
     computeroutput.innerHTML = computerchoice;
 
-    resultoutput.innerHTML = getResult(humenchoice, computerchoice);
-}
+    const result = getResult(humenchoice, computerchoice);
+    resultoutput.innerHTML = result;
 
+    if (result === "Jij wint") {
+        playerWins++;
+        winStreak++;
+
+        if (winStreak > highScore) {
+            highScore = winStreak;
+        }
+    }
+    else if (result === "Computer wint") {
+        botWins++;
+        winStreak = 0;
+    }
+
+    playerWinsOutput.innerHTML = playerWins;
+    botWinsOutput.innerHTML = botWins;
+    winStreakOutput.innerHTML = winStreak;
+    highScoreOutput.innerHTML = highScore;
+}
 
 steenbtn.addEventListener("click", playGame);
 papierbtn.addEventListener("click", playGame);
 schaarbtn.addEventListener("click", playGame);
 
-//zodat de uitslag kan besluiten woorden
 function getResult(humenchoice, computerchoice) {
     if (humenchoice === computerchoice) {
-        return "Gelijkspel ";
+        return "Gelijkspel";
     }
 
     if (
@@ -48,8 +73,8 @@ function getResult(humenchoice, computerchoice) {
         (humenchoice === "papier" && computerchoice === "steen") ||
         (humenchoice === "schaar" && computerchoice === "papier")
     ) {
-        return "Jij wint ";
+        return "Jij wint";
     }
 
-    return "Computer wint ";    
+    return "Computer wint";
 }
