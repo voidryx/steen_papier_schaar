@@ -7,16 +7,15 @@ const botWinsOutput = document.querySelector("#botWins");
 const winStreakOutput = document.querySelector("#winStreak");
 const highScoreOutput = document.querySelector("#highScore");
 
+const winSound = document.querySelector("#winSound");
+const loseSound = document.querySelector("#loseSound");
+
 humenoutput.innerHTML = "jouw keuze komt hier";
 
 const steenbtn = document.querySelector("#steen");
 const papierbtn = document.querySelector("#papier");
 const schaarbtn = document.querySelector("#schaar");
 
-let humenchoice = "";
-let computerchoice = "";
-
-// Scores
 let playerWins = 0;
 let botWins = 0;
 let winStreak = 0;
@@ -31,10 +30,10 @@ function getComputerChoice() {
 }
 
 function playGame(event) {
-    humenchoice = event.target.id;
+    const humenchoice = event.target.id;
     humenoutput.innerHTML = humenchoice;
 
-    computerchoice = getComputerChoice();
+    const computerchoice = getComputerChoice();
     computeroutput.innerHTML = computerchoice;
 
     const result = getResult(humenchoice, computerchoice);
@@ -44,13 +43,19 @@ function playGame(event) {
         playerWins++;
         winStreak++;
 
+        winSound.currentTime = 0;
+        winSound.play();
+
         if (winStreak > highScore) {
             highScore = winStreak;
         }
-    }
-    else if (result === "Computer wint") {
+
+    } else if (result === "Computer wint") {
         botWins++;
         winStreak = 0;
+
+        loseSound.currentTime = 0;
+        loseSound.play();
     }
 
     playerWinsOutput.innerHTML = playerWins;
