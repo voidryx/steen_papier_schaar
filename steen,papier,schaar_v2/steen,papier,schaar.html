@@ -12,16 +12,21 @@
         <h1>Jouw keuze: <span id="human"></span></h1>
         <h1>Uitkomst: <span id="result"></span></h1>
 
-        <hr>
+        <div class="scores">
+            <h2>Player Wins: <span id="playerWins">0</span></h2>
+            <h2>Bot Wins: <span id="botWins">0</span></h2>
+            <h2>Win Streak: <span id="winStreak">0</span></h2>
+            <h2>High Score: <span id="highScore">0</span></h2>
+        </div>
 
-        <h2>Player Wins: <span id="playerWins">0</span></h2>
-        <h2>Bot Wins: <span id="botWins">0</span></h2>
-        <h2>Win Streak: <span id="winStreak">0</span></h2>
-        <h2>High Score: <span id="highScore">0</span></h2>
-
-        <button id="steen">Steen</button>
-        <button id="papier">Papier</button>
-        <button id="schaar">Schaar</button>
+        <div class="buttons">
+            <button id="steen">Steen</button>
+            <button id="papier">Papier</button>
+            <button id="schaar">Schaar</button>
+        </div>
     </div>
+
+    <audio id="winSound" src="dragon-studio-correct-472358.mp3"></audio>
+    <audio id="loseSound" src="drummusiclooper5000-lose-sfx-365579.mp3"></audio>
 </body>
 </html>
