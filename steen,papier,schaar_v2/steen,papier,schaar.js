@@ -1,3 +1,4 @@
+//variabelen maken//
 const humenoutput = document.querySelector("#human");
 const computeroutput = document.querySelector("#computer");
 const resultoutput = document.querySelector("#result");
@@ -16,13 +17,14 @@ const steenbtn = document.querySelector("#steen");
 const papierbtn = document.querySelector("#papier");
 const schaarbtn = document.querySelector("#schaar");
 
+//houdt de score bij//
 let playerWins = 0;
 let botWins = 0;
 let winStreak = 0;
 let highScore = 0;
 
 function getComputerChoice() {
-    const randomnumber = Math.floor(Math.random() * 3) + 1;
+    const randomnumber = Math.floor(Math.random() * 3) + 1; //pakt 0-1 daarna zet het om in 0-3 uiteindelijk maakt hij er een heel nummer van//
 
     if (randomnumber === 1) return "steen";
     if (randomnumber === 2) return "papier";
